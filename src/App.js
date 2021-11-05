@@ -1,19 +1,26 @@
 import react from "react";
+//global stayle
 import GlobalStyle from "./components/GlobalStyled";
+//pages
 import AboutUs from "./pages/AboutUs"
 import Nav from "./components/Nav";
 import ContactUs from "./pages/ContactUs";
 import OurWork from "./pages/OurWork";
 import MovieDetail from "./pages/MovieDetail";
-import {Switch , Route} from "react-router-dom";
+//rauter
+import {Switch , Route , useLocation} from "react-router-dom";
+//animation
+import {AnimatePresence} from "framer-motion"
 
 
 function App() {
-  return (
+  const location = useLocation();
+     return (
     <div className="App">
       <GlobalStyle/>
       <Nav/>
-      <Switch>
+      <AnimatePresence exitBeforeEnter>
+      <Switch location={location}  key ={location.pathname}>
         <Route path="/" exact>
           <AboutUs/>
         </Route>
@@ -27,6 +34,7 @@ function App() {
           <ContactUs/>
         </Route>
       </Switch>
+      </AnimatePresence>
     </div>
   );
 }

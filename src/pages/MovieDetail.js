@@ -2,6 +2,9 @@ import React , {useState ,useEffect} from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router";
 import {MovieState} from "../movieState";
+//animation
+import { motion } from "framer-motion";
+import {pageAnimation} from "../animation";
 
 const MovieDetail =() => {
     const history =useHistory();
@@ -18,7 +21,7 @@ const MovieDetail =() => {
     return(
         <>
         {movie &&(
-    <Datails>
+    <Datails variants={pageAnimation} initial="hidden" animate ="show" exit="exit">
         <HeadLine>
             <h2>{movie.title}</h2>
             <img src={movie.mainImg} alt="movie" />
@@ -41,7 +44,7 @@ const MovieDetail =() => {
     );
 };
 
-const Datails = styled.div `
+const Datails = styled(motion.div) `
     color: white;
 `
 const HeadLine =styled.div`
