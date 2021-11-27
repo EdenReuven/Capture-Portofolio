@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-const GlobalStyle = createGlobalStyle `
+const GlobalStyle = createGlobalStyle`
 *{
     margin: 0;
     padding: 0;
@@ -50,5 +50,5 @@ button {
         font-size: 1.4rem ;
         line-height: 150%;
     }
-`
+`;
 export default GlobalStyle;
